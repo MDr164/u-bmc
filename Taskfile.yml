@@ -33,6 +33,7 @@ includes:
   ovmf: taskfiles/Ovmf.yml
   docs: taskfiles/Docs.yml
   qemu: taskfiles/Qemu.yml
+  raspi: taskfiles/Raspberry.yml
 
 # Declaration of all available tasks.
 # This file only contains tasks that are meant

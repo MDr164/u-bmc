@@ -49,6 +49,7 @@ var DefaultConfig = &Config{
 		{Protocol: "udp", Address: "roughtime.sandbox.google.com:2002", PublicKeyType: ttime.KEY_TYPE_ED25519, PublicKey: "etPaaIxcBMY1oUeGpwvPMCJMwlRVNxv51KK/tktoJTQ="},
 		{Protocol: "udp", Address: "time.0xt.ca:2002", PublicKeyType: ttime.KEY_TYPE_ED25519, PublicKey: "iBVjxg/1j7y1+kQUTBYdTabxCppesU/07D4PMDJk2WA="},
 		{Protocol: "udp", Address: "roughtime.int80h.com:2002", PublicKeyType: ttime.KEY_TYPE_ED25519, PublicKey: "AW5uAoTSTDfG5NfY1bTh08GUnOqlRb+HVhbJ3ODJvsE="},
+		{Protocol: "udp", Address: "10.0.2.2:2002", PublicKeyType: ttime.KEY_TYPE_ED25519, PublicKey: "e8fZVchsDRvz/YGKjUSG5B6mxChdp+a+kxwl9/akPlc="},
 	},
 
 	// While u-bmc has been granted 0.u-bmc.pool.ntp.org, they do not currently

@@ -1,0 +1,35 @@
+version: '3'
+
+tasks:
+  # Fetch the latest RaspberryPi firmware files
+  fetch-firmware:
+    dir: build/firmware
+    cmds:
+      - echo "Downloading RaspberryPi firmware files..."
+      - curl --silent -L -O https://github.com/raspberrypi/firmware/raw/master/boot/bootcode.bin
+      - curl --silent -L -O https://github.com/raspberrypi/firmware/raw/master/boot/fixup_cd.dat
+      - curl --silent -L -O https://github.com/raspberrypi/firmware/raw/master/boot/fixup4cd.dat
+      - curl --silent -L -O https://github.com/raspberrypi/firmware/raw/master/boot/start_cd.elf
+      - curl --silent -L -O https://github.com/raspberrypi/firmware/raw/master/boot/start4cd.elf
+      - echo "Done!"
+    status:
+      - test -f bootcode.bin
+      - test -f fixup*.dat
+      - test -f start*.elf
+
+  # Create default config file
+  create-config:
+    dir: build/firmware
+    cmds:
+      - echo "Creating default config.txt..."
+      - |
+        echo -e \
+        "kernel=boot/vmlinux \n\
+        arm_64bit=1 \n\
+        start_file=start_cd.elf \n\
+        fixup_file=fixup_cd.dat \n\
+        gpu_mem=16" \
+        >> config.txt
+      - echo "Done!"
+    status:
+      - test -f config.txt

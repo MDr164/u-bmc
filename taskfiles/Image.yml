@@ -142,3 +142,29 @@ tasks:
     generates:
       - img/rootfs.img
     method: timestamp    
+
+  # Create RaspberryPi boot partition
+  raspberry-boot:
+    dir: build/img
+    cmds:
+      - echo "Creating RaspberryPi boot partition..."
+      - mkfs.vfat -C -F 32 fatboot.img 102400000
+      - 'mcopy -i fatboot.img ../firmware/* ::'
+      - echo "Done!"
+    sources:
+      - ../firmware/*
+    generates:
+      - fatboot.img
+
+  # Create RaspberryPi SD-Card image
+  raspberry-sd:
+    dir: build/img
+    cmds:
+      - echo "Creating RaspberryPi SD-Card image..."
+      - dd if=/dev/zero of=raspberry.img
+      - echo "Done!"
+    sources:
+      - fatboot.img
+      - rootfs.img
+    generates:
+      - raspberry.img

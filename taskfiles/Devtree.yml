@@ -67,7 +67,7 @@ tasks:
         --ram-start {{.__RAM_START}} \
         --ram-size {{.__RAM_SIZE}} \
         --dtb boot/platform.dtb.boot.dummy \
-        --initrd boot/bootldr.cpio.gz \
+        --initrd boot/bootldr.cpio \
         > boot/boot-config.auto.h
       - |
         cpp \

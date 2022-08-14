@@ -22,7 +22,7 @@ dtb_size:
 
 	.globl initrd_start
 initrd_start:
-	.incbin "../../build/boot/bootldr.cpio.gz"
+	.incbin "../../build/boot/bootldr.cpio"
 	.align 2
 initrd_end:
 	.globl initrd_size
